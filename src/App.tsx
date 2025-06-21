@@ -6,6 +6,7 @@ interface Props {
   children: React.ReactNode;
 }
 
+// eslint-disable-next-line react/display-name
 export const Provider: React.FC<Props> = React.memo(({ onClick, children }) => (
   <button type="button" onClick={onClick}>
     {children}
