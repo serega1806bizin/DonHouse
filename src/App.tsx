@@ -1,21 +1,14 @@
-import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { adminRoutes } from './app/admin/routes';
+import './main.css';
 
-interface Props {
-  onClick: () => void;
-  children: React.ReactNode;
-}
-
-// eslint-disable-next-line react/display-name
-export const Provider: React.FC<Props> = React.memo(({ onClick, children }) => (
-  <button type="button" onClick={onClick}>
-    {children}
-  </button>
-));
-
-export const App: React.FC = () => {
+export default function App() {
   return (
-    <div className="starter">
-      <Provider onClick={() => ({})}>TodoList</Provider>
-    </div>
+    <Router>
+      <Routes>
+        {adminRoutes}
+        <Route path="*" element={<div>Страница не найдена</div>} />
+      </Routes>
+    </Router>
   );
-};
+}
