@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  z-index: 10;
+  z-index: 2;
   border-radius: 18px 18px 0 0;
 }
 
@@ -42,14 +42,16 @@
   width: 200px;
 }
 
-.navbar__dropdown a {
+.navbar__dropdown a,
+.navbar__dropdown div:not(.navbar__divider) {
   display: block;
   color: #9EA3BA;
   font-size: 13px;
-  padding: 5px 0;
+  padding: 7px 0;
   text-align: center;
   text-decoration: none;
 }
+
 
 .navbar__divider {
   width: calc(100% + 20px);
