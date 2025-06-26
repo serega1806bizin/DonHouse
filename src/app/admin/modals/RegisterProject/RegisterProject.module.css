@@ -1,7 +1,79 @@
-/* .register-project-page-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-} */
+/* stylelint-disable declaration-block-no-redundant-longhand-properties */
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: #425079;
+  padding: 15px 15px 30px;
+  border-radius: 14px;
+  width: 95%;
+  max-height: 90%;
+  min-height: 500px;
+  overflow: auto;
+  color: white;
+}
+
+.modal__title {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 41px;
+  text-align: center;
+  margin-bottom: 17px;
+}
+
+.label {
+  font-size: 13px;
+  font-family: Inter, sans-serif;
+  color: white;
+}
+
+.datePicker{
+  width: 100%;
+  height: 40px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  height: 45px;
+}
+
+.cancelButton {
+  background-color: #808080;
+  color: #4C4C4C;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 48%;
+  height: 100%;
+}
+
+
+.createButton {
+  background-color: #52c41a;
+  width: 48%;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

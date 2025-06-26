@@ -2,22 +2,11 @@
 /* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
 import styles from './CreateTask.module.css';
-import {
-  Form,
-  Button,
-  DatePicker,
-  ConfigProvider,
-  Input,
-  Upload,
-  Modal,
-} from 'antd';
+import { Form, Button, DatePicker, Input, Upload, Modal } from 'antd';
 import { useClickOutside } from '../../../../hooks/useClickOutside';
 import { useRef, useState } from 'react';
 import { SelectProject } from '../../components/SelectProject/SelectProject';
 
-import ruRU from 'antd/lib/locale/ru_RU';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import 'moment/locale/ru';
 import moment from 'moment';
 
 // Устанавливаем локализацию для Moment.js
@@ -25,6 +14,7 @@ moment.locale('ru');
 
 // Типы данных для формы
 interface FormValues {
+  id: number;
   id_project: number | null;
   start_date: moment.Moment | null;
   end_date: moment.Moment | null;
@@ -95,147 +85,172 @@ export const CreateTask = ({ onClose }: { onClose: () => void }) => {
       <div className={styles.modal} ref={ref}>
         <h2 className={styles.modal__title}>Новая задача</h2>
 
-        {/* Локализация Ant Design через ConfigProvider */}
-        <ConfigProvider
-          locale={ruRU}
-          getPopupContainer={trigger =>
-            (trigger?.parentNode as HTMLElement) || document.body
-          }
+        <Form
+          form={form}
+          layout="vertical"
+          name="create_task"
+          initialValues={{
+            id: Date.now(),
+            id_project: null,
+            start_date: null,
+            end_date: null,
+            title: '',
+            decription: '',
+          }}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
         >
-          <Form
-            form={form}
-            layout="vertical"
-            name="create_task"
-            initialValues={{
-              id_project: null,
-              start_date: null,
-              end_date: null,
-              title: '',
-              decription: '',
-            }}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            autoComplete="off"
+          {/* Поле выбора проекта */}
+          <Form.Item
+            label={<b className={styles.label}>Проект</b>}
+            name="id_project"
+            rules={[{ required: true, message: 'Выберите проект' }]}
           >
-            {/* Поле выбора проекта */}
-            <Form.Item
-              label={<b className={styles.label}>Проект</b>}
-              name="id_project"
-              rules={[{ required: true, message: 'Выберите проект' }]}
+            <SelectProject
+              projects={projects}
+              value={form.getFieldValue('id_project')}
+              onChange={val => form.setFieldsValue({ id_project: val })}
+              placeholder="-- Выберите из списка --"
+            />
+          </Form.Item>
+          {/* Поле выбора даты начала */}
+          <Form.Item
+            label={<b className={styles.label}>Начало</b>}
+            name="start_date"
+            rules={[
+              { required: true, message: 'Введите дату начала' },
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  if (
+                    !value ||
+                    !getFieldValue('end_date') ||
+                    value.isBefore(getFieldValue('end_date'))
+                  ) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject(
+                    new Error('Дата начала не может быть позже даты конца'),
+                  );
+                },
+              }),
+            ]}
+          >
+            <DatePicker
+              className={styles.datePicker}
+              onChange={val => form.setFieldsValue({ start_date: val })}
+              value={form.getFieldValue('start_date')}
+              format="DD.MM.YYYY"
+              placeholder="01.01.2025"
+            />
+          </Form.Item>
+          <Form.Item
+            label={<b className={styles.label}>Конец</b>}
+            name="end_date"
+            rules={[
+              { required: true, message: 'Введите дату конца' },
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  if (
+                    !value ||
+                    !getFieldValue('start_date') ||
+                    value.isAfter(getFieldValue('start_date'))
+                  ) {
+                    return Promise.resolve();
+                  }
+
+                  return Promise.reject(
+                    new Error('Дата конца не может быть раньше даты начала'),
+                  );
+                },
+              }),
+            ]}
+          >
+            <DatePicker
+              className={styles.datePicker}
+              onChange={val => form.setFieldsValue({ end_date: val })}
+              value={form.getFieldValue('end_date')}
+              format="DD.MM.YYYY"
+              placeholder="07.01.2025"
+            />
+          </Form.Item>
+          {/* Поле ввода заголовка */}
+          <Form.Item
+            label={<b className={styles.label}>Короткое название задачи</b>}
+            name="title"
+            rules={[{ required: true, message: 'Введите заголовок задачи' }]}
+          >
+            <Input
+              style={{ height: 40 }}
+              placeholder="Например, 'Покраска фасада'"
+            />
+          </Form.Item>
+          {/* Поле ввода описания */}
+          <Form.Item
+            label={<b className={styles.label}>Что нужно сделать?</b>}
+            name="description"
+            rules={[{ required: true, message: 'Введите описание' }]}
+          >
+            <Input.TextArea
+              style={{ height: 100 }}
+              placeholder="Опишите задачу..."
+            />
+          </Form.Item>
+          <Form.Item
+            label={<b className={styles.label}>Фотографии</b>}
+            style={{ marginBottom: 40 }}
+            name="photos"
+          >
+            <Upload
+              listType="picture-card"
+              fileList={fileList}
+              onPreview={handlePreview}
+              onChange={handleChange}
+              accept="image/*"
+              multiple={true}
             >
-              <SelectProject
-                projects={projects}
-                value={form.getFieldValue('id_project')}
-                onChange={val => form.setFieldsValue({ id_project: val })}
-                placeholder="-- Выберите из списка --"
-              />
-            </Form.Item>
-            {/* Поле выбора даты начала */}
-            <Form.Item
-              label={<b className={styles.label}>Начало</b>}
-              name="start_date"
-              rules={[{ required: true, message: 'Введите дату начала' }]}
+              {fileList.length >= 20 ? null : (
+                <div style={{ color: 'white' }}>
+                  +<div style={{ color: 'white' }}>Добавить</div>
+                </div>
+              )}
+            </Upload>
+          </Form.Item>
+          <Modal
+            open={previewOpen}
+            title="Предпросмотр"
+            footer={null}
+            onCancel={handleCancel}
+          >
+            <img alt="preview" style={{ width: '100%' }} src={previewImage} />
+          </Modal>{' '}
+          {/* Кнопка для отправки формы */}
+          <div className={styles.buttons}>
+            <Button
+              className={styles.cancelButton}
+              onClick={onClose}
+              aria-label="Закрыть"
             >
-              <DatePicker
-                className={styles.datePicker}
-                onChange={val => form.setFieldsValue({ start_date: val })}
-                value={form.getFieldValue('start_date')}
-                format="DD.MM.YYYY"
-                placeholder="01.01.2025"
-              />
-            </Form.Item>
-            {/* Поле выбора даты конца */}
-            <Form.Item
-              label={<b className={styles.label}>Конец</b>}
-              name="end_date"
-              rules={[{ required: true, message: 'Введите дату конца' }]}
-            >
-              <DatePicker
-                className={styles.datePicker}
-                onChange={val => form.setFieldsValue({ end_date: val })}
-                value={form.getFieldValue('end_date')}
-                format="DD.MM.YYYY"
-                placeholder="07.01.2025"
-              />
-            </Form.Item>
-            {/* Поле ввода заголовка */}
-            <Form.Item
-              label={<b className={styles.label}>Короткое название задачи</b>}
-              name="title"
-              rules={[{ required: true, message: 'Введите заголовок задачи' }]}
-            >
-              <Input
-                style={{ height: 40 }}
-                placeholder="Например, 'Покраска фасада'"
-              />
-            </Form.Item>
-            {/* Поле ввода описания */}
-            <Form.Item
-              label={<b className={styles.label}>Что нужно сделать?</b>}
-              name="description"
-              rules={[{ required: true, message: 'Введите описание' }]}
-            >
-              <Input.TextArea
-                style={{ height: 100 }}
-                placeholder="Опишите задачу..."
-              />
-            </Form.Item>
-            <Form.Item
-              label={<b className={styles.label}>Фотографии</b>}
-              style={{ marginBottom: 40 }}
-              name="photos"
-            >
-              <Upload
-                listType="picture-card"
-                fileList={fileList}
-                onPreview={handlePreview}
-                onChange={handleChange}
-                accept="image/*"
-                multiple={true}
-              >
-                {fileList.length >= 20 ? null : (
-                  <div style={{ color: 'white' }}>
-                    +<div style={{ color: 'white' }}>Добавить</div>
-                  </div>
-                )}
-              </Upload>
-            </Form.Item>
-            <Modal
-              open={previewOpen}
-              title="Предпросмотр"
-              footer={null}
-              onCancel={handleCancel}
-            >
-              <img alt="preview" style={{ width: '100%' }} src={previewImage} />
-            </Modal>{' '}
-            {/* Кнопка для отправки формы */}
-            <div className={styles.buttons}>
+              Отмена
+            </Button>
+            <Form.Item className={styles.createButton}>
               <Button
-                className={styles.cancelButton}
-                onClick={onClose}
-                aria-label="Закрыть"
+                style={{
+                  padding: 0,
+                  margin: 0,
+                  backgroundColor: '#52c41a',
+                  fontWeight: 'bold',
+                  color: '#000',
+                  border: 'none',
+                }}
+                type="primary"
+                htmlType="submit"
               >
-                Отмена
+                Создать
               </Button>
-              <Form.Item className={styles.createButton}>
-                <Button
-                  style={{
-                    padding: 0,
-                    margin: 0,
-                    backgroundColor: '#52c41a',
-                    fontWeight: 'bold',
-                    color: '#000',
-                    border: 'none',
-                  }}
-                  type="primary"
-                  htmlType="submit"
-                >
-                  Создать
-                </Button>
-              </Form.Item>
-            </div>
-          </Form>
-        </ConfigProvider>
+            </Form.Item>
+          </div>
+        </Form>
       </div>
     </div>
   );

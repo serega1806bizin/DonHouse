@@ -66,9 +66,7 @@ interface Foreman extends User {
   code: number;
 }
 
-interface Master extends User {
-  fullName: ReactNode;
-}
+interface Master extends User {}
 
 interface BookingMasterRequest {
   id: number;

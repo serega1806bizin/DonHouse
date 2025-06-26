@@ -3,6 +3,7 @@ import styles from './AdminNav.module.css';
 import { useState, useRef } from 'react';
 import { CreateTask } from '../../modals/CreateTask/CreateTask';
 import { useClickOutside } from '../../../../hooks/useClickOutside';
+import { RegisterProject } from '../../modals/RegisterProject/RegisterProject';
 
 const leftItems = [
   { to: '/admin/projects', icon: 'project', label: 'Проекты' },
@@ -23,6 +24,8 @@ interface Item {
 export const AdminNav = () => {
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
   const [isOpenCreateTaskModal, setIsOpenCreateTaskModal] = useState(false);
+  const [isOpenRegisterProjectModal, setIsOpenRegisterProjectModal] =
+    useState(false);
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -31,6 +34,11 @@ export const AdminNav = () => {
   const handleOpenCreateTaskModal = () => {
     setIsOpenDropdown(false);
     setIsOpenCreateTaskModal(true);
+  };
+
+  const handleOpenRegisterProjectModal = () => {
+    setIsOpenDropdown(false);
+    setIsOpenRegisterProjectModal(true);
   };
 
   const isActive = (path: string) => location.pathname.startsWith(path);
@@ -76,7 +84,9 @@ export const AdminNav = () => {
               Новая задача
             </a>
             <div className={styles.navbar__divider}></div>
-            <a href="#">Зарегистрировать проект</a>
+            <a onClick={handleOpenRegisterProjectModal}>
+              Зарегистрировать проект
+            </a>
             <div className={styles.navbar__divider}></div>
             <div>
               <Link
@@ -94,6 +104,9 @@ export const AdminNav = () => {
       </nav>
       {isOpenCreateTaskModal && (
         <CreateTask onClose={() => setIsOpenCreateTaskModal(false)} />
+      )}
+      {isOpenRegisterProjectModal && (
+        <RegisterProject onClose={() => setIsOpenRegisterProjectModal(false)} />
       )}
     </>
   );
