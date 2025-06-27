@@ -129,6 +129,7 @@ export const CreateTask = ({ onClose }: { onClose: () => void }) => {
                   ) {
                     return Promise.resolve();
                   }
+
                   return Promise.reject(
                     new Error('Дата начала не может быть позже даты конца'),
                   );

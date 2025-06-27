@@ -1,7 +1,122 @@
-/* .create-test-page-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-} */
+/* stylelint-disable order/properties-order */
+.createTestPage {
+  padding: 42px 29px;
+  color: white;
+  margin-bottom: 60px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.conteinerDataInput {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.dataInpun {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 13px;
+}
+
+.label {
+  font-size: 13px;
+  font-family: Inter, sans-serif;
+  color: white;
+}
+
+.datePicker{
+  width: 92px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0);
+  color: white;
+  margin: 0;
+}
+
+.timePicker{
+  margin: 0;
+  width: 60px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0);
+  color: white;
+
+}
+
+.in {
+  margin: 0;
+  padding: 0;
+}
+
+.numberInputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.numberInput{
+  width: 45px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.dividerWithText {
+  display: flex;
+  align-items: center;
+  color: white;
+  gap: 30px;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background-color: white;
+  opacity: 0.6;
+}
+
+.text {
+  white-space: nowrap;
+  font-size: 16px;
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.addBtn {
+  background-color: #ffc107 !important; /* Жёлтая */
+  color: black !important;
+  font-weight: bold;
+  border: none !important;
+  border-radius: 8px;
+  padding: 6px 18px;
+  width: 45%;
+  height: 40px;
+}
+
+.submitBtn {
+  background-color: #1EFF00;
+  color: black !important;
+  font-weight: bold;
+  border: none !important;
+  border-radius: 8px;
+  padding: 6px 18px;
+  width: 45%;
+  height: 40px;
+}

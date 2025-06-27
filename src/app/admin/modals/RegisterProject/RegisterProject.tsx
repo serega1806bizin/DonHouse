@@ -41,6 +41,7 @@ export const RegisterProject = ({ onClose }: { onClose: () => void }) => {
       // eslint-disable-next-line no-param-reassign
       delete values.description; // Удаляем поле, если оно пустое
     }
+
     console.log('✅ Успешно отправлено:', values);
   };
 
