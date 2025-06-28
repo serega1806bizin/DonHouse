@@ -1,6 +1,5 @@
 /* eslint-disable no-param-reassign */
 import { useState } from 'react';
-import { useGoBack } from '../../../../hooks/useGoBack';
 import styles from './createTestPage.module.css';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import dayjs from 'dayjs'; // убедись, что установлен

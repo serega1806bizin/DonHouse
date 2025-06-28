@@ -1,0 +1,92 @@
+/* stylelint-disable order/properties-order */
+.testСard {
+  background-color: #425079;
+  border-radius: 10px;
+  padding: 16px;
+  color: white;
+  font-family: sans-serif;
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  margin: 16px 0;
+}
+
+.testСard__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+}
+
+.testСard__stat {
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.testСard__button {
+  margin-top: 12px;
+  background-color: #ff8000;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.testСard__button:hover {
+  background-color: #e56f00;
+}
+
+.testСard__menuButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.testСard__menuButton img {
+  width: 20px;
+  height: 20px;
+}
+
+.testCard__menu {
+  position: absolute;
+  top: 18px;
+  right: 42px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  gap: 1px;
+}
+
+.Btn {
+  border-radius: 4px;
+}
+
+.editBtn {
+  background-color: #f6c400;
+  color: #222;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.deleteBtn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.editBtn:hover,
+.deleteBtn:hover {
+  opacity: 0.85;
+}
