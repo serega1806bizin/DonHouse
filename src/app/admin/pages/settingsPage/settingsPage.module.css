@@ -1,3 +1,49 @@
-/* .agentsPage {
+/* stylelint-disable order/properties-order */
+.SettingsPage {
+  padding: 42px 29px;
+  color: white;
+  margin-bottom: 60px;
+}
 
-} */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.options__list {
+  padding: 10px;
+  background-color: #425079;
+  border-radius: 6px;
+}
+
+.options__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  color: white;
+  text-decoration: none;
+}
+
+.options__item:not(:last-child) {
+  border-bottom: 1px solid #FFF;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}

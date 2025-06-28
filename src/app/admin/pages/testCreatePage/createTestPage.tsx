@@ -15,6 +15,7 @@ import {
   message,
 } from 'antd';
 import { CreateQuestion } from '../../components/CreateQuestion/CreateQuestion';
+import { GoBack } from '../../components/Btns/GoBack';
 
 type QuestionType = 'text' | 'checkbox';
 
@@ -35,7 +36,6 @@ interface Test {
 }
 
 export const CreateTestPage = () => {
-  const goBack = useGoBack();
   const [checked, setChecked] = useState(false);
   const [form] = Form.useForm();
 
@@ -91,7 +91,7 @@ export const CreateTestPage = () => {
     <div className={styles.createTestPage}>
       <header className={styles.header}>
         <h1 className={styles.title}>Создать тест</h1>
-        <img onClick={goBack} src="/icons/back.svg" alt="назад" />
+        <GoBack />
       </header>
       <ConfigProvider
         theme={{
