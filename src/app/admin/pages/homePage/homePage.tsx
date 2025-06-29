@@ -76,9 +76,9 @@ export const HomePage = () => {
           <span className={styles.statsText}>
             {homePageData.foremanCount} прорабов
           </span>
-          <a className={styles.statsManage} href="#">
+          <Link className={styles.statsManage} to="/admin/foremans">
             управлять
-          </a>
+          </Link>
         </div>
       </div>
     </div>

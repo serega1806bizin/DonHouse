@@ -1,0 +1,52 @@
+/* stylelint-disable order/properties-order */
+.card {
+  color: white;
+  position: relative;
+  width: 100%;
+  margin-bottom: 16px;
+  border-bottom: #aaa 1px solid;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fullName {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.contacts {
+  margin: 10px 0;
+  color: #aaa;
+}
+
+.telegram {
+  color: #b38bff;
+  font-weight: bold;
+  font-style: italic;
+  text-decoration: none;
+}
+
+.line {
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.finesButton {
+  background-color: #a86dfc;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  width: 100%;
+  margin-bottom: 20px;
+}

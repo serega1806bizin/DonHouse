@@ -25,8 +25,16 @@ interface Task {
   color: string;
 }
 
+interface Signature {
+  id: number;
+  id_foreman: number;
+  date?: string;
+  isSigned: boolean;
+}
+
 interface Warning {
   id: number;
+  date: string;
   id_project: number;
   title: string;
   description: string;
@@ -121,6 +129,7 @@ interface ResultTesting {
   id_test: number;
   id_foreman: number;
   testing: boolean;
-  success: boolean | null;
-  answers: AnswerOfQuestion[];
+  success?: boolean | null;
+  dateOfTesting?: string;
+  answers?: AnswerOfQuestion[];
 }

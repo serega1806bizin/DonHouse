@@ -1,0 +1,108 @@
+/* stylelint-disable order/properties-order */
+.cardWrapper {
+  margin-bottom: 20px;
+}
+
+.date {
+  color: white;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.card {
+  background-color: #42507b;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.title {
+  color: white;
+  font-size: 16px;
+}
+
+.labelWarning {
+  font-size: 12px;
+  color: white;
+  opacity: 0.7;
+}
+
+.amount {
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.moreBtn {
+  background-color: #ff7a00;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+.markPaidBtn {
+  background-color: #4b4528;
+  border: none;
+  color: black;
+  font-weight: bold;
+}
+
+.paid {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  background: transparent;
+}
+
+.link {
+  width: 100%;
+  text-decoration: none;
+  display: flex;
+}
+
+.fullWidthBtn {
+  width: 100%;
+  background-color: #ff7a00;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+.halfWidthBtn {
+  width: 45%;
+  background-color: #ff7a00;
+  border: none;
+  color: white;
+  font-weight: bold;
+  height: 32px;
+  font-size: 14px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.halfWidthBtnYellow {
+  background-color: #ffd400;
+  font-size: 11px;
+  width: 50%;
+  border: none;
+  color: black;
+  font-weight: bold;
+  height: 32px;
+}

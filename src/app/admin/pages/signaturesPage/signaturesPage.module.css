@@ -1,14 +1,15 @@
 /* stylelint-disable order/properties-order */
-.foremanFinesPage {
-  margin: 39px 30px;
-  margin-bottom: 100px;
+.signaturesPage {
+  padding: 42px 2px;
   color: white;
+  margin-bottom: 60px;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 20px;
 }
 
 .title {
@@ -18,9 +19,4 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: block;
-}
-
-.text {
-  font-size: 15px;
-  margin-bottom: 20px;
 }

@@ -1,5 +1,5 @@
 import { GoBack } from '../../components/Btns/GoBack';
-import { CartAboutTest } from '../../components/cartAboutTest/cartAboutTest';
+import { CartAboutTest } from '../../components/СartAboutTest/cartAboutTest';
 import styles from './testsPage.module.css';
 interface Test {
   id: number;

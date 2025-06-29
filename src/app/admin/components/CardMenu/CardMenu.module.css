@@ -1,0 +1,48 @@
+/* stylelint-disable order/properties-order */
+.menuButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menuWrapper {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  top: 5px;
+  right: 42px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  gap: 1px;
+}
+
+.Btn {
+  border-radius: 4px;
+}
+
+.editBtn {
+  background-color: #f6c400;
+  color: #222;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.deleteBtn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.editBtn:hover,
+.deleteBtn:hover {
+  opacity: 0.85;
+}

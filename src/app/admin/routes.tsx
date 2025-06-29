@@ -18,6 +18,8 @@ import { MastersSection } from './pages/agentsPage/MastersSection/MastersSection
 import { SuppliersSection } from './pages/agentsPage/SuppliersSection/SuppliersSection';
 import { ProjectsPage } from './pages/projectsPage/projectsPage';
 import { GraficsPage } from './pages/graficsPage/graficsPage';
+import { EditingForemanPage } from './pages/EditingForemanPage/EditingForemanPage';
+import { FineDetailsPage } from './pages/FineDetailsPage/FineDetailsPage';
 
 export const adminRoutes = (
   <Route path="admin" element={<AdminLayout />}>
@@ -37,7 +39,10 @@ export const adminRoutes = (
     <Route path="instruments" element={<InstrumentsPage />} />
 
     <Route path="foremans" element={<ForemansPage />} />
-    <Route path="fines/:idForeman" element={<ForemanFinesPage />} />
+    <Route path="fines/foreman/:idForeman" element={<ForemanFinesPage />} />
+    <Route path="fines/details/:idFine" element={<FineDetailsPage />} />
+
+    <Route path="editingForeman/:idForeman" element={<EditingForemanPage />} />
 
     <Route path="agents" element={<AgentsLayout />}>
       <Route index element={<Navigate to="masters" replace />} />
