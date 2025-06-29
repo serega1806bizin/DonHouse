@@ -1,4 +1,4 @@
-import styles from './signaturesTable.module.css';
+import styles from './SignaturesTable.module.css';
 
 interface Signature {
   id: number;
