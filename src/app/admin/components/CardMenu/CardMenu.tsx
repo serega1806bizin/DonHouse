@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import styles from './cardMenu.module.css';
+import styles from './CardMenu.module.css';
 import { Link } from 'react-router-dom';
 import { useClickOutside } from '../../../../hooks/useClickOutside';
 
