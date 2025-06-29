@@ -48,10 +48,7 @@ export const AdminNav = () => {
 
     return (
       <Link to={to} key={to} className={styles.navbar__item}>
-        <img
-          src={`/public/icons/${icon}${active ? '-active' : ''}.svg`}
-          alt={label}
-        />
+        <img src={`/icons/${icon}${active ? '-active' : ''}.svg`} alt={label} />
         <span
           style={{ color: active ? '#A45BFF' : '#9EA3BA' }}
           className={styles.navbar__item__title}
@@ -69,7 +66,7 @@ export const AdminNav = () => {
 
         <div className={styles.navbar__center} ref={dropdownRef}>
           <img
-            src="/public/icons/plus.svg"
+            src="/icons/plus.svg"
             alt="Добавить"
             onClick={() => setIsOpenDropdown(prev => !prev)}
           />
