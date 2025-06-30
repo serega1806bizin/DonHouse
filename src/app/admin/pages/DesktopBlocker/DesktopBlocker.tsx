@@ -5,6 +5,7 @@ export default function DesktopBlocker() {
 
   useEffect(() => {
     const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
     setIsDark(dark);
   }, []);
 
