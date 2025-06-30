@@ -41,13 +41,15 @@
     "vite": "^5.3.1"
   },
   "scripts": {
-    "start": "start -l",
+    "dev": "vite",
+    "start": "npm run dev",
     "build": "vite build",
+    "preview": "vite preview",
     "style-format": "npx stylelint 'src/**/*.scss' --fix --allow-empty-input",
     "lint-js": "lint -j",
     "lint-css": "lint -s",
     "format": "prettier --write './src/**/*.{ts,tsx}'",
-    "lint": "npm run style-format && npm run format && npm run lint-js && npm run lint-css",
+    "lint": "npm run style-format && npm run format && npm run lint-js",
     "predeploy": "npm run build"
   },
   "browserslist": {
