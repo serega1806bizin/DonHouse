@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
 import styles from './CreateTask.module.css';
-import { Form, Button, DatePicker, Input, Upload, Modal } from 'antd';
+import { Form, Button, DatePicker, Input, Upload, Modal, message } from 'antd';
 import { useClickOutside } from '../../../../hooks/useClickOutside';
 import { useRef, useState } from 'react';
 import { SelectProject } from '../../components/SelectProject/SelectProject';
@@ -58,6 +58,8 @@ export const CreateTask = ({ onClose }: { onClose: () => void }) => {
 
   const onFinish = (values: FormValues) => {
     console.log('✅ Успешно отправлено:', values);
+    onClose();
+    message.success('Задача успешно создана!');
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
