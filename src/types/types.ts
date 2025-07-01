@@ -85,11 +85,13 @@ interface BookingMasterRequest {
 }
 
 interface Content {
+  id: number;
   type: 'text' | 'images' | 'video' | 'documents';
   content: string | string[];
 }
 
 interface Section {
+  id: number;
   name: string;
   content: Content[];
 }

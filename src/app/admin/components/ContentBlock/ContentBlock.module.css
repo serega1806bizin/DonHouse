@@ -1,0 +1,17 @@
+/* stylelint-disable order/properties-order */
+.ContentBlock {
+  border: 1px solid #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.inputLink {
+  width: 100%;
+  font-size: 14px;
+  border-radius: 4px;
+  height: 31px;
+  border: none;
+  padding-left: 10px;
+  margin-bottom: 28px;
+}

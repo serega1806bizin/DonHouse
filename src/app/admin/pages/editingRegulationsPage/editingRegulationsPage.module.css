@@ -1,3 +1,79 @@
-/* .agentsPage {
+/* stylelint-disable order/properties-order */
+.editingRegulationsPage {
+  padding: 42px 29px;
+  color: white;
+  margin-bottom: 60px;
+}
 
-} */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.section {
+  border-bottom: 4px solid #FFF;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.btnAddContent {
+  height: 40px;
+  background-color: #FC0;
+  font-size: 14px;
+  font-weight: bold;
+    border: none;
+
+}
+
+.btnDeleteSection {
+  height: 40px;
+  background-color: #F00;
+  color: #FFF;
+  font-weight: bold;
+  border: none;
+
+}
+
+.btnCreateSection {
+  height: 40px;
+  background-color: #0F0;
+  color: #000;
+    border: none;
+
+  font-weight: bold;
+}
+
+.btnSave {
+  height: 40px;
+  background-color: #FC0;
+  color: #000;
+  font-weight: bold;
+  border: none;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+}
+
+.inputName {
+  width: 100%;
+  font-size: 14px;
+  border-radius: 4px;
+  height: 31px;
+  border: none;
+  padding-left: 10px;
+  margin-bottom: 28px;
+}
