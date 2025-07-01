@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
 import { useState } from 'react';
 import styles from './createTestPage.module.css';

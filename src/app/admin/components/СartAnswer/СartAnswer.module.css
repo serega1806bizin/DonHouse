@@ -1,0 +1,53 @@
+/* stylelint-disable order/properties-order */
+.card {
+  background-color: #f9f9f9;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: black;
+}
+
+.status {
+  margin-bottom: 12px;
+}
+
+.answerGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.optionBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.optionBoxCorrect {
+  background-color: #e6ffed;
+  border-color: #52c41a;
+}
+
+.optionBoxIncorrect {
+  background-color: #fff1f0;
+  border-color: #ff4d4f;
+}
+
+.icon {
+  font-size: 16px;
+}
+
+.correctText {
+  color: green;
+  font-weight: bold;
+}
+
+.incorrectText {
+  color: red;
+  font-weight: bold;
+}
